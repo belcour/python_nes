@@ -42,7 +42,7 @@ cdef enum:
 
 cdef class NES:
 
-    cdef:
+    cdef readonly:
         NESPPU ppu
         NESAPU apu
         NESCart cart

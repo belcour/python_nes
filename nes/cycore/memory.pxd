@@ -11,7 +11,7 @@ from .apu cimport NESAPU
 ######## memory base ##################################################
 
 cdef class MemoryBase:
-    cdef unsigned char read(self, int address)
+    cdef public unsigned char read(self, int address)
     cdef void write(self, int address, unsigned char value)
 
 
@@ -41,7 +41,7 @@ cdef class NESMappedRAM(MemoryBase):
     cdef object controller1, controller2
 
     ###### functions ##########################
-    cdef unsigned char read(self, int address)
+    cpdef unsigned char read(self, int address)
     cdef void write(self, int address, unsigned char value)
 
     cdef void run_oam_dma(self, int page)

@@ -11,7 +11,7 @@ cdef class MemoryBase:
     def __init__(self):
         pass
 
-    cdef unsigned char read(self, int address):
+    cdef public unsigned char read(self, int address):
         raise NotImplementedError()
 
     cdef void write(self, int address, unsigned char value):
@@ -38,7 +38,7 @@ cdef class NESMappedRAM(MemoryBase):
         # internal variable used for open bus behaviour
         self._last_bus = 0
 
-    cdef unsigned char read(self, int address):
+    cpdef unsigned char read(self, int address):
         """
         Read one byte of memory from the NES address space
         """
